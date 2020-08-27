@@ -77,3 +77,28 @@ rankTest('voyageRisk test voyage length =4 and zone = test', t => {
   //then
   t.is(result, 1);
 })
+
+rankTest('voyageRisk test voyage length =4 and zone = test', t => {
+  //given
+  const voyage = {
+    zone: 'test',
+    length: 4,
+  };
+  //when
+  const result = voyageRisk(voyage)
+  //then
+  t.is(result, 1);
+})
+
+rankTest('voyageRisk test voyage length =9 and zone = china', t => {
+  //given
+  const voyage = {
+    zone: 'china',
+    length: 9,
+  };
+  //when
+  const result = voyageRisk(voyage)
+  //then
+  t.is(result, 8);
+})
+
