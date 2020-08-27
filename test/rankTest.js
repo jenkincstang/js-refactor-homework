@@ -1,14 +1,5 @@
 const rankTest = require('ava');
 const { voyageRisk, captainHistoryRisk, voyageProfitFactor, rating } = require('../src/rank');
-
-rankTest('foo', t => {
-  t.pass();
-});
-
-rankTest('bar', async t => {
-  const bar = Promise.resolve('bar');
-  t.is(await bar, 'bar');
-});
 /*
 * const voyage = {
   zone: 'west-indies',
@@ -78,18 +69,6 @@ rankTest('voyageRisk test voyage length =4 and zone = test', t => {
   t.is(result, 1);
 })
 
-rankTest('voyageRisk test voyage length =4 and zone = test', t => {
-  //given
-  const voyage = {
-    zone: 'test',
-    length: 4,
-  };
-  //when
-  const result = voyageRisk(voyage)
-  //then
-  t.is(result, 1);
-})
-
 rankTest('voyageRisk test voyage length =9 and zone = china', t => {
   //given
   const voyage = {
@@ -102,3 +81,42 @@ rankTest('voyageRisk test voyage length =9 and zone = china', t => {
   t.is(result, 8);
 })
 
+rankTest('voyageRisk test voyage length =9 and zone = test', t => {
+  //given
+  const voyage = {
+    zone: 'test',
+    length: 9,
+  };
+  //when
+  const result = voyageRisk(voyage)
+  //then
+  t.is(result, 4);
+})
+
+rankTest('captainHistoryRisk test voyage.zone = west-indies and history.length = 4', t => {
+  //given
+  const voyage = {
+    zone: 'west-indies',
+    length: 10,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+  ];
+  //when
+  const result = captainHistoryRisk (voyage, history)
+  //then
+  t.is(result, 6);
+})
