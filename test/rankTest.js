@@ -349,7 +349,7 @@ rankTest('voyageProfitFactor test voyage.zone = china and hasChina(history)==TRU
   //given
   const voyage = {
     zone: 'china',
-    length: 10,
+    length: 12,
   };
   const history = [
     {
@@ -394,3 +394,55 @@ rankTest('voyageProfitFactor test voyage.zone = china and hasChina(history)==TRU
   t.is(result, 6);
 })
 
+rankTest('voyageProfitFactor test voyage.zone = china and hasChina(history)==TRUE and history.length = 11', t => {
+  //given
+  const voyage = {
+    zone: 'china',
+    length: 12,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+    {
+      zone: 'west-africa1',
+      profit: 7,
+    },{
+      zone: 'west-africa2',
+      profit: 7,
+    },
+    {
+      zone: 'west-africa1',
+      profit: 7,
+    },{
+      zone: 'west-africa2',
+      profit: 7,
+    },
+    {
+      zone: 'west-africa1',
+      profit: 7,
+    },{
+      zone: 'west-africa2',
+      profit: 7,
+    },
+    {
+      zone: 'west-africa2',
+      profit: 7,
+    },
+  ];
+  //when
+  const result = voyageProfitFactor (voyage, history)
+  //then
+  t.is(result, 7);
+})
