@@ -226,9 +226,18 @@ rankTest('captainHistoryRisk test voyage.zone = china and history.length = 6', t
       zone: 'west-africa',
       profit: 7,
     },
+    {
+      zone: 'west-africa1',
+      profit: 7,
+    },{
+      zone: 'west-africa2',
+      profit: 7,
+    },
+
   ];
   //when
   const result = captainHistoryRisk (voyage, history)
   //then
-  t.is(result, 4);
+  t.is(result, 0);
 })
+
