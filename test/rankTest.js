@@ -93,7 +93,7 @@ rankTest('voyageRisk test voyage length =9 and zone = test', t => {
   t.is(result, 4);
 })
 
-rankTest('captainHistoryRisk test voyage.zone = west-indies and history.length = 4', t => {
+rankTest('captainHistoryRisk test voyage.zone = west-indies and history.length = 4 history has china', t => {
   //given
   const voyage = {
     zone: 'west-indies',
@@ -108,6 +108,34 @@ rankTest('captainHistoryRisk test voyage.zone = west-indies and history.length =
       profit: 15,
     },{
       zone: 'china',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+  ];
+  //when
+  const result = captainHistoryRisk (voyage, history)
+  //then
+  t.is(result, 6);
+})
+
+rankTest('captainHistoryRisk test voyage.zone = west-indies and history.length = 4 history has not china', t => {
+  //given
+  const voyage = {
+    zone: 'west-indies',
+    length: 10,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china1',
       profit: -2,
     },
     {
