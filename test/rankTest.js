@@ -120,3 +120,115 @@ rankTest('captainHistoryRisk test voyage.zone = west-indies and history.length =
   //then
   t.is(result, 6);
 })
+
+rankTest('captainHistoryRisk test voyage.zone = china and history.length = 4', t => {
+  //given
+  const voyage = {
+    zone: 'china',
+    length: 10,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+  ];
+  //when
+  const result = captainHistoryRisk (voyage, history)
+  //then
+  t.is(result, 4);
+})
+
+rankTest('captainHistoryRisk test voyage.zone = china and history.length = 4', t => {
+  //given
+  const voyage = {
+    zone: 'china',
+    length: 10,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+  ];
+  //when
+  const result = captainHistoryRisk (voyage, history)
+  //then
+  t.is(result, 4);
+})
+
+rankTest('captainHistoryRisk test voyage.zone = china and history.length = 4', t => {
+  //given
+  const voyage = {
+    zone: 'china',
+    length: 10,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china1',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+  ];
+  //when
+  const result = captainHistoryRisk (voyage, history)
+  //then
+  t.is(result, 6);
+})
+
+rankTest('captainHistoryRisk test voyage.zone = china and history.length = 6', t => {
+  //given
+  const voyage = {
+    zone: 'china',
+    length: 10,
+  };
+  const history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'china',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+  ];
+  //when
+  const result = captainHistoryRisk (voyage, history)
+  //then
+  t.is(result, 4);
+})
