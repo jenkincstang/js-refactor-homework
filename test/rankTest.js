@@ -1002,3 +1002,61 @@ rankTest('voyageProfitFactor test voyage.zone = TEST and voyage.length = 14 and 
   //then
   t.is(result, 2);
 })
+
+rankTest('rating test return A', t => {
+  const voyage = {
+    zone: 'china',
+    length: 13,
+  };
+  const history = [
+    {
+      zone: 'east-indies1',
+      profit: 5,
+    },
+    {
+      zone: 'east-indies2',
+      profit: 2,
+    },
+    {
+      zone: 'west-indies1',
+      profit: 15,
+    },
+    {
+      zone: 'west-indies2',
+      profit: 15,
+    },
+    {
+      zone: 'west-indies3',
+      profit: 15,
+    },
+    {
+      zone: 'china',
+      profit: 7,
+    },
+    {
+      zone: 'west-africa0',
+      profit: 7,
+    },
+    {
+      zone: 'west-africa1',
+      profit: 7,
+    },
+    {
+      zone: 'west-africa2',
+      profit: 7,
+    },
+    {
+      zone: 'west-africa3',
+      profit: 7,
+    },
+    {
+      zone: 'west-africa4',
+      profit: 7,
+    },
+  ];
+
+  const result = rating(voyage, history)
+
+  t.is(result, 'A');
+})
+
