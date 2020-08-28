@@ -10,7 +10,7 @@ printTest('printTest test output: ', t => {
 ***********************
 name: Jenkin
 amount: 3
-amount: 9/27/2020`
+amount: 2020-9-27`
     );
 });
 
