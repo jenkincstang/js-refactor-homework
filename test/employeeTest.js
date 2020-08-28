@@ -11,6 +11,11 @@ employeeTest("employeeTest : test toString() output when no throw error with nam
   t.is(employee.toString(),"Jenkin (manager)");
 })
 
+employeeTest("employeeTest : test toString() output when no throw error with name=Jenkin and type = salesman",t => {
+  let employee = new Employee("Jenkin","salesman");
+  t.is(employee.toString(),"Jenkin (salesman)");
+})
+
 employeeTest("employeeTest : test constructor() output when throw error",t => {
   try{
     let employee = new Employee("Jenkin","engineer1");
