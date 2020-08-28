@@ -36,12 +36,11 @@ function captainHistoryRisk (voyage, history) {
 
 function voyageProfitFactor (voyage, history) {
   let result = 2;
-  if (voyage.zone === 'china') {
+  let zones = ['china', 'east-indies'];
+  if (zones.includes(voyage.zone)){
     result += 1;
   }
-  if (voyage.zone === 'east-indies') {
-    result += 1;
-  }
+
   if (voyage.zone === 'china' && hasChina(history)) {
     result += 3;
     if (history.length > 10) {
