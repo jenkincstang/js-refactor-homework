@@ -12,14 +12,18 @@ function generateHeaderInfoOfCustomerOweInvoice() {
   return output;
 }
 
+function setDueDateOfInvoice(invoice) {
+  const today = new Date();
+  invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
+  return invoice;
+}
+
 function printOwing (invoice) {
 
   let output = generateHeaderInfoOfCustomerOweInvoice();
-
   let outstanding = getTotalAmountOfInvoice(invoice);
   // record due date
-  const today = new Date();
-  invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
+  invoice = setDueDateOfInvoice(invoice);
 
   // print details
   output += `name: ${invoice.customer}\n`;
