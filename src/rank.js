@@ -1,17 +1,20 @@
 function voyageRisk (voyage) {
-  let result = 1;
-  if (voyage.length > 4) {
-    result += 2;
-  }
-  if (voyage.length > 8) {
-    result += voyage.length - 8;
-  }
-  if ([
+  let history = [
     'china',
     'east-indies',
-  ].includes(voyage.zone)) {
+  ];
+  let result = 1;
+
+  if (voyage.length > 8) {
+    result += voyage.length - 6;
+  } else if (voyage.length > 4){
+    result += 2;
+  }
+
+  if (history.includes(voyage.zone)) {
     result += 4;
   }
+
   return Math.max(result, 0);
 }
 
