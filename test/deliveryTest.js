@@ -10,7 +10,7 @@ deliveryDateTest("deliveryDateTest: test deliveryState=MA and isRush is true",t 
 
 
 deliveryDateTest("deliveryDateTest: test deliveryState=CT and isRush is true",t => {
-  let anOrder = {deliveryState:'MA', placedOn:{plusDays:function (deliveryTime) {
+  let anOrder = {deliveryState:'CT', placedOn:{plusDays:function (deliveryTime) {
         return deliveryTime;
       }}};
   t.is(deliveryDate(anOrder,true),2)
@@ -22,6 +22,14 @@ deliveryDateTest("deliveryDateTest: test deliveryState=NY and isRush is true",t 
       }}};
   t.is(deliveryDate(anOrder,true),3)
 })
+
+deliveryDateTest("deliveryDateTest: test deliveryState=NH and isRush is true",t => {
+  let anOrder = {deliveryState:'NH', placedOn:{plusDays:function (deliveryTime) {
+        return deliveryTime;
+      }}};
+  t.is(deliveryDate(anOrder,true),3)
+})
+
 
 deliveryDateTest("deliveryDateTest: test deliveryState=TEST and isRush is true",t => {
   let anOrder = {deliveryState:'TEST', placedOn:{plusDays:function (deliveryTime) {
