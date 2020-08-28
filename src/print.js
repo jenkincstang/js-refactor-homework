@@ -18,17 +18,20 @@ function setDueDateOfInvoice(invoice) {
   return invoice;
 }
 
-function printOwing (invoice) {
+function generateDetailInfoOfInvoice(output, invoice, outstanding) {
+  output += `name: ${invoice.customer}\n`;
+  output += `amount: ${outstanding}\n`;
+  output += `amount: ${invoice.dueDate.toLocaleDateString()}`;
+  return output;
+}
 
+function printOwing (invoice) {
   let output = generateHeaderInfoOfCustomerOweInvoice();
   let outstanding = getTotalAmountOfInvoice(invoice);
   // record due date
   invoice = setDueDateOfInvoice(invoice);
-
   // print details
-  output += `name: ${invoice.customer}\n`;
-  output += `amount: ${outstanding}\n`;
-  output += `amount: ${invoice.dueDate.toLocaleDateString()}`;
+  output = generateDetailInfoOfInvoice(output, invoice, outstanding);
   return output;
 }
 module.exports = {
