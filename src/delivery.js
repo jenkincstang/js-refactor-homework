@@ -1,16 +1,24 @@
-function deliveryDate (anOrder, isRush) {
+function getDeliveryStateMapWithIsRushTrue() {
   let deliveryStateMapWithIsRushTrue = new Map();
-  deliveryStateMapWithIsRushTrue.set('MA',1);
-  deliveryStateMapWithIsRushTrue.set('CT',1);
-  deliveryStateMapWithIsRushTrue.set('NY',2);
-  deliveryStateMapWithIsRushTrue.set('NH',2);
+  deliveryStateMapWithIsRushTrue.set('MA', 1);
+  deliveryStateMapWithIsRushTrue.set('CT', 1);
+  deliveryStateMapWithIsRushTrue.set('NY', 2);
+  deliveryStateMapWithIsRushTrue.set('NH', 2);
+  return deliveryStateMapWithIsRushTrue;
+}
+
+function getDeliveryTimeWithIsRushTrue(deliveryStateMapWithIsRushTrue, anOrder) {
+  if (deliveryStateMapWithIsRushTrue.has(anOrder.deliveryState)) {
+    return deliveryStateMapWithIsRushTrue.get(anOrder.deliveryState);
+  } else {
+    return 3;
+  }
+}
+
+function deliveryDate (anOrder, isRush) {
+  let deliveryStateMapWithIsRushTrue = getDeliveryStateMapWithIsRushTrue();
   if (isRush) {
-    let deliveryTime;
-    if (deliveryStateMapWithIsRushTrue.has(anOrder.deliveryState)){
-      deliveryTime = deliveryStateMapWithIsRushTrue.get(anOrder.deliveryState);
-    }else {
-      deliveryTime = 3;
-    }
+    let deliveryTime = getDeliveryTimeWithIsRushTrue(deliveryStateMapWithIsRushTrue, anOrder);
     return anOrder.placedOn.plusDays(1 + deliveryTime);
   }
   else {
