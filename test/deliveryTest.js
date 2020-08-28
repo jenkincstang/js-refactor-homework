@@ -14,3 +14,10 @@ deliveryDateTest("deliveryDateTest: test deliveryState=NY and isRush is true",t 
       }}};
   t.is(deliveryDate(anOrder,true),3)
 })
+
+deliveryDateTest("deliveryDateTest: test deliveryState=TEST and isRush is true",t => {
+  let anOrder = {deliveryState:'TEST', placedOn:{plusDays:function (deliveryTime) {
+        return deliveryTime;
+      }}};
+  t.is(deliveryDate(anOrder,true),4)
+})
