@@ -1,9 +1,14 @@
 const employeeTest = require('ava');
 const { Employee } = require('../src/employee');
 
-employeeTest("employeeTest : test toString() output when no throw error",t => {
+employeeTest("employeeTest : test toString() output when no throw error with name=Jenkin and type = engineer",t => {
   let employee = new Employee("Jenkin","engineer");
   t.is(employee.toString(),"Jenkin (engineer)");
+})
+
+employeeTest("employeeTest : test toString() output when no throw error with name=Jenkin and type = manager",t => {
+  let employee = new Employee("Jenkin","manager");
+  t.is(employee.toString(),"Jenkin (manager)");
 })
 
 employeeTest("employeeTest : test constructor() output when throw error",t => {
